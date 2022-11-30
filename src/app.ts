@@ -3,7 +3,7 @@ import authRouter from './router/regster.router'
 import { connectDB } from "./config/db";
 
 const app = express()
-const port = 3000
+const port = 3034
 
 app.use(express.json())
 

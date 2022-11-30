@@ -28,3 +28,22 @@ export const regsterHandler = async(
             })
         }
     }
+
+
+    export const getAllusersHandler = async(
+        req:Request,
+        res:Response,
+        next:NextFunction)=>{
+            try{
+                const users = await prisma.user.findMany();
+    
+                return res.status(201).json({users})
+            }
+            catch(err){
+                console.log(err)
+                const prismaError = err as PrismaClientExtensionError
+                return res.status(400).json({
+                    message:prismaError.message
+                })
+            }
+        }
